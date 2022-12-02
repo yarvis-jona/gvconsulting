@@ -11,7 +11,7 @@ export default function Home({empresa, hero, servicios, clientes}) {
     <LayoutMain titulo="Inicio" empresa={empresa}>
       <section className="bg-[url('https://res.cloudinary.com/dgd9b9ulz/image/upload/v1668969758/large_imagenhero_70c4f812f1.jpg')] bg-cover bg-center bg-no-repeat" >
         <div className="h-[32rem] container mx-auto flex justify-center items-center md:justify-start">
-          <article className="bg-gris w-1/2 p-6 space-y-4">
+          <article className="bg-gris/60 w-1/2 p-6 space-y-4 rounded-md">
             <h2 className="font-primario font-bold text-2xl md:text-5xl text-azul uppercase">{titulo}</h2> 
             <p className="font-secundario text-sm md:text-lg">{contenido}</p>
             <button className="font-secundario font-bold text-md text-white bg-celeste rounded-md px-4 py-2">Conoce más</button>
@@ -20,7 +20,7 @@ export default function Home({empresa, hero, servicios, clientes}) {
       </section>
 
       <section>
-        <h2 className="font-primario font-bold text-5xl text-center py-10">Nuestros Servicios</h2>
+        <h2 className="font-primario font-bold text-3xl md:text-6xl text-center py-10">Nuestros Servicios</h2>
         <div className="p-4 pb-10 gap-6 sm:grid sm:grid-cols-3 container mx-auto">
           {
             servicios.map((servicio ,index) => (
@@ -39,7 +39,7 @@ export default function Home({empresa, hero, servicios, clientes}) {
               alt={`imagen ${empresa.attributes.nombre}`}
           />
           <div className="space-y-6 text-white">
-            <h2 className="font-primario font-bold text-5xl">¿Quienes Somos?</h2>
+            <h2 className="font-primario font-bold text-3xl md:text-6xl">¿Quienes Somos?</h2>
             <p className="font-secundario">{empresa.attributes.descripcion}</p>
             <button className="font-secudario font-bold bg-celeste px-6 py-2 rounded-md">Conoce más</button>
           </div>
@@ -47,7 +47,7 @@ export default function Home({empresa, hero, servicios, clientes}) {
       </section>
         
       <section className="container mx-auto py-10 md:py-20">
-        <h2 className="font-primario font-bold text-6xl text-center py-6">Clientes</h2>
+        <h2 className="font-primario font-bold text-3xl md:text-6xl text-center py-6">Clientes</h2>
         <div className="md:grid md:grid-cols-3">
           {
             clientes.map((cliente ,index) => (
@@ -62,7 +62,7 @@ export default function Home({empresa, hero, servicios, clientes}) {
 
       <section className="flex justify-center items-center bg-celeste h-96">
           <div className="w-2/3 text-center p-6 space-y-6">
-            <p className="font-primario font-bold text-white text-2xl md:text-4xl uppercase">contactanos y resuelve todas tus preguntas acerca de nosotros</p>
+            <p className="font-primario font-bold text-white text-3xl md:text-6xl uppercase">contactanos y resuelve todas tus preguntas acerca de nosotros</p>
             <button className="font-secundario font-bold px-6 py-4 rounded-md bg-white text-celeste">Envianos un mesaje</button>
           </div>
       </section>

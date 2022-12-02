@@ -9,7 +9,7 @@ const Servicios = ({empresa, servicios}) => {
   return (
     <LayoutMain titulo="Servicios" empresa={empresa}>
       <main>
-        <h1 className="font-primario font-bold text-azul text-4xl text-center py-10">Nuestros Servicios</h1>
+        <h1 className="font-primario font-bold text-azul text-3xl md:text-6xl text-center py-10">Nuestros Servicios</h1>
         <section className="p-4 pb-10 gap-6 sm:grid sm:grid-cols-3 container mx-auto">
 
           {

@@ -14,8 +14,8 @@ const Nosotros = ({empresa, gerente}) => {
   return (
     <LayoutMain titulo="Nosotros" empresa={empresa}>
       <main className="">
-        <h1 className="font-primario text-6xl text-center text-azul py-10">Nosotros</h1>
-        <section className="px-4 py-20 sm:grid sm:grid-cols-2 gap-x-10 gap-y-8 space-y-6 container mx-auto">
+        <h1 className="font-primario font-bold text-3xl md:text-6xl text-center text-azul py-10">Nosotros</h1>
+        <section className="px-4 pb-20 sm:grid sm:grid-cols-2 gap-x-10 gap-y-8 space-y-6 container mx-auto">
           <div className="flex items-center">
             <Image 
               src={imagen.data.attributes.formats.medium.url} 

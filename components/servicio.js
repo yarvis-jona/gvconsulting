@@ -10,7 +10,7 @@ const Service = ({servicio}) => {
             height={800}
             alt={`imagen ${servicio.attributes.nombre}`}
         />
-        <h3 className="font-secundario font-bold text-3xl text-center capitalize">{servicio.attributes.nombre}</h3>
+        <h3 className="font-secundario font-bold text-3xl text-center capitalize pb-4">{servicio.attributes.nombre}</h3>
         <Link href={`/servicios/${servicio.attributes.nombre}`}>
           <button className="bg-celeste font-secundario font-bold text-white text-lg w-3/4 rounded-md py-2">Conoce más</button>
         </Link>

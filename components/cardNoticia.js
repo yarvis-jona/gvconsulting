@@ -3,12 +3,13 @@ import Image from "next/image"
 const CardNoticia = ({post}) => {
   console.log(post)
   return (
-    <div className="bg-gris flex gap-4 border-2 border-gris">
+    <div className="bg-gris md:flex md:gap-4 border-2 border-gris">
       <Image
         src={post.attributes.imagen.data.attributes.formats.medium.url}
         width={300}
         height={300}
         alt={`imagen ${post.attributes.titulo}`}
+        className="w-full md:w-auto"
       />
       <div className="space-y-4 p-4">
         <h3 className="font-primario font-bold text-2xl capitalize">{post.attributes.titulo}</h3>

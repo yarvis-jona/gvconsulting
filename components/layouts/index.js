@@ -16,7 +16,7 @@ const LayoutMain = ({children, titulo, empresa}) => {
         </Head>
 
         <header>
-            <div className="bg-black">
+            <div className="bg-black hidden md:block">
                 <div className="container mx-auto font-secundario font-bold text-md text-gris p-4 md:flex md:justify-between">
                     <p className="flex items-center gap-2"><span><AiOutlineMail /></span><span>{email}</span></p>
                     <p className="flex items-center gap-2"><span><AiOutlinePhone /></span><span>{telefonos}</span></p>

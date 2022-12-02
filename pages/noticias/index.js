@@ -6,7 +6,7 @@ const Noticias = ({empresa, posts}) => {
   return (
     <LayoutMain titulo="Noticias" empresa={empresa}>
       <main>
-        <h1 className="font-primario font-bold text-azul text-4xl text-center py-10">Noticias</h1>
+        <h1 className="font-primario font-bold text-azul text-3xl md:text-6xl text-center py-10">Noticias</h1>
         <section className="container mx-auto space-y-4 p-4">
           {
             posts.map((post ,index) => (

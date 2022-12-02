@@ -8,7 +8,7 @@ const Contacto = ({empresa}) => {
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <h2 className="mt-6 text-center text-4xl font-bold font-primario text-azul">Contacto</h2>
+            <h2 className="mt-6 text-center text-3xl md:text-6xl font-bold font-primario text-azul">Contacto</h2>
             <p className="mt-2 font-secundario text-center text-lg text-gray-600">
               Envianos un mensaje, en breve nos comunicaremos con usted.
             </p>
@@ -35,7 +35,7 @@ const Contacto = ({empresa}) => {
         </div>
         </div>
 
-        <div className="flex justify-center md:justify-end">
+        <div className="flex justify-center md:justify-end p-2">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.8424747412796!2d-76.95066743538824!3d-12.191119691371258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b913734332db%3A0xaf47018ae38e466!2sVilla%20De%20Salvador%20Sector%20I%20Grupo%207%2C%20Cercado%20de%20Lima%2015828!5e0!3m2!1ses!2spe!4v1668950124341!5m2!1ses!2spe" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
