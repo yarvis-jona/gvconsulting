@@ -1,6 +1,31 @@
+import { useContext } from "react"
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 import LayoutMain from "../components/layouts"
+import servicioContext from "../context/servicioContext"
 
 const Contacto = ({empresa}) => {
+
+  const router = useRouter()
+
+  const ServicioState = useContext(servicioContext)
+  const { nameServicio, categoria, limpiarServicio } = ServicioState
+
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = (data) => {
+    const { nombre, correo, mensaje } = data
+
+    const url = `https://api.whatsapp.com/send?phone=51986382385&text=Mi nombre es *${nombre}*, mi correo es *${correo}*, solicito informes sobre *${categoria} (${nameServicio})*, ${mensaje}`
+
+    window.open(url)
+
+    limpiarServicio()
+
+    router.push('/servicios')
+  }
+
+
   return (
     <LayoutMain titulo="Contacto" empresa={empresa}>
     
@@ -13,16 +38,29 @@ const Contacto = ({empresa}) => {
               Envianos un mensaje, en breve nos comunicaremos con usted.
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-8 space-y-6" action="#" method="POST"
+          >
             <input type="hidden" name="remember" value="true" />
             <div className="space-y-2 rounded-md shadow-sm">
               <div>
-                <label for="email-address" className="sr-only">Ingrese su nombre y apellido</label>
-                <input id="email-address" name="email" type="email" autocomplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Ingrese su nombre y apellido"/>
+                <label for="nombre-apellido" className="sr-only">Ingrese su nombre y apellido</label>
+                <input id="nombre-apellido" name="nombre" type="text" autocomplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Ingrese su nombre y apellido"
+                {...register('nombre')}
+                />
               </div>
               <div>
-                <label for="password" className="sr-only">Contraseña</label>
-                <textarea id="password" name="password" type="password" autocomplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Mensaje"></textarea>
+                <label for="email-address" className="sr-only">Ingrese su correo electronico</label>
+                <input id="email-address" name="email" type="email" autocomplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Ingrese su correo electronico"
+                {...register('correo')}
+                />
+              </div>
+              <div>
+                <label for="password" className="sr-only">Escriba un mensaje</label>
+                <textarea id="password" name="password" type="password" autocomplete="current-password" className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Mensaje"
+                {...register('mensaje')}
+                ></textarea>
               </div>
             </div>
 

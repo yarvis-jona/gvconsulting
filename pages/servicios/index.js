@@ -5,7 +5,6 @@ import Service from "../../components/servicio"
 
 const Servicios = ({empresa, servicios}) => {
 
-  console.log(servicios)
   return (
     <LayoutMain titulo="Servicios" empresa={empresa}>
       <main>

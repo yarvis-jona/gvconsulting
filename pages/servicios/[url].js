@@ -2,10 +2,10 @@ import LayoutMain from "../../components/layouts"
 import Image from "next/image"
 import TipoService from "../../components/tipoService"
 
-const Servicio = ({empresa, servicio}) => {
+const Servicio = ({empresa, servicio, tipoServicios}) => {
 
     const {nombre, descripcion} = servicio[0].attributes
-    const {data: services} = servicio[0].attributes.servicios
+    const {data: services} = tipoServicios[0].attributes.servicios
     
   return (
     <LayoutMain titulo="servicio" empresa={empresa}>
@@ -29,10 +29,10 @@ const Servicio = ({empresa, servicio}) => {
         <section className="pb-10">
           <div className="container mx-auto p-4 space-y-6">
             <h2 className="font-primario font-bold text-2xl md:text-4xl text-center">{`Realizamos los siguientes servicios de ${nombre}`}</h2>
-            <div className="font-secundario font-bold md:grid md:grid-cols-3 md:gap-4">
+            <div>
               {
                 services.map((service ,index) => (
-                  <TipoService key={index} service={service}/>
+                  <TipoService key={index} service={service} categoria={nombre}/>
                 ))
               }
             </div>
@@ -64,21 +64,25 @@ export async function getStaticProps ({params: {url}}) {
 
     const urlEmpresa = `${process.env.URL_BASE}/api/empresa?populate=imagen`
     const urlServicio = `${process.env.URL_BASE}/api/tipo-servicios?filters[url]=${url}&populate=*`
+    const urlTipoServicios = `${process.env.URL_BASE}/api/tipo-servicios?filters[url]=${url}&populate[servicios][populate][0]=imagen`
   
-    const [ resEmpresa, resServicio ] = await Promise.all([
+    const [ resEmpresa, resServicio, resTipoServicios ] = await Promise.all([
       fetch(urlEmpresa),
-      fetch(urlServicio)
+      fetch(urlServicio),
+      fetch(urlTipoServicios)
     ])
   
-    const [ {data: empresa}, {data: servicio} ] = await Promise.all([
+    const [ {data: empresa}, {data: servicio}, {data: tipoServicios} ] = await Promise.all([
       resEmpresa.json(),
-      resServicio.json()
+      resServicio.json(),
+      resTipoServicios.json()
     ])
   
     return {
       props: {
         empresa,
-        servicio
+        servicio,
+        tipoServicios
       }
     }
   }

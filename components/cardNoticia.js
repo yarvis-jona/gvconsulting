@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const CardNoticia = ({post}) => {
   console.log(post)
@@ -14,7 +15,9 @@ const CardNoticia = ({post}) => {
       <div className="space-y-4 p-4">
         <h3 className="font-primario font-bold text-2xl capitalize">{post.attributes.titulo}</h3>
         <p className="line-clamp-3 font-secundario text-lg">{post.attributes.descripcion}</p>
-        <button className="bg-celeste w-1/4 py-2 font-secundario font-bold text-white">Leer más</button>
+        <Link href={`/noticias/${post.attributes.url}`}>
+          <button className="bg-celeste w-1/4 py-2 font-secundario font-bold text-white">Leer más</button>
+        </Link>
       </div>
     </div>
   )
